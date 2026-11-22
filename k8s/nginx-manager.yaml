@@ -34,3 +34,27 @@ spec:
       - name: letsencrypt
         persistentVolumeClaim:
           claimName: npm-letsencrypt
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: npm-data
+  namespace: argocd
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: npm-letsencrypt
+  namespace: argocd
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
